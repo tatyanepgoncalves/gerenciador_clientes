@@ -1,17 +1,28 @@
-import { FiTrash} from "react-icons/fi"
+import ClientItem from "./ClientItem";
 
-export default function ListClients() {
+interface CustomerProps {
+  id: string;
+  name: string;
+  email: string;
+  status: boolean;
+  created_at: string;
+}
+
+interface CustomerListProps {
+  customer: CustomerProps[];
+  onDeleteCustomer: (name: string, email: string) => void;
+}
+
+export default function ListClients({ customer, onDeleteCustomer }: CustomerListProps) {
   return (
-    <section className="flex flex-col ">
-      <article className="w-full bg-white rounded p-2 relative hover:scale-105 duration-200">
-        <p><span className="font-medium">Nome:</span> Tatyane</p>
-        <p><span className="font-medium">Email:</span> taty@email.com</p>
-        <p className="uppercase"><span className="font-medium capitalize">Status:</span> Ativo</p>
-
-        <button className="bg-red-500 w-7 h-7 flex items-center justify-center rounded-lg absolute right-0 -top-2">
-          <FiTrash size={18} color="#fff" />
-        </button>
-      </article>
+    <section className="flex flex-col gap-4">
+      {customer.map((customer) => (
+        <ClientItem 
+          key={customer.id} 
+          customer={customer} 
+          onDeleteCustomer={onDeleteCustomer} 
+        />
+      ))}
     </section>
-  )
+  );
 }

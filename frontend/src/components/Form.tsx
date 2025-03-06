@@ -1,6 +1,25 @@
-export default function Form() {
+import { useRef, FormEvent } from "react";
+
+interface CustomerFormProps {
+  onAddCustomer: (name: string, email: string) => void;
+}
+
+export default function Form({ onAddCustomer }: CustomerFormProps) {
+  const nameRef = useRef<HTMLInputElement | null>(null);
+  const emailRef = useRef<HTMLInputElement | null>(null);
+
+  async function handleSubmit(event: FormEvent) {
+    event.preventDefault();
+
+    if (!nameRef.current?.value || !emailRef.current?.value) return;
+
+    onAddCustomer(nameRef.current?.value, emailRef.current?.value);
+    nameRef.current.value = "";
+    emailRef.current.value = "";
+  }
+
   return (
-    <form className="flex flex-col my-6">
+    <form className="flex flex-col my-6" onSubmit={handleSubmit}>
       <label htmlFor="input-name" className="font-medium text-white">
         Nome
       </label>
@@ -9,6 +28,7 @@ export default function Form() {
         placeholder="Digite seu nome completo..."
         id="input-name"
         className="w-full mb-5 p-2 bg-white rounded-sm"
+        ref={nameRef}
       />
 
       <label htmlFor="input-email" className="font-medium text-white">
@@ -19,6 +39,7 @@ export default function Form() {
         placeholder="Digite seu email..."
         id="input-name"
         className="w-full mb-5 p-2 bg-white rounded-sm"
+        ref={emailRef}
       />
 
       <input
