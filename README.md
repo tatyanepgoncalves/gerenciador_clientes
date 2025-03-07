@@ -1,7 +1,7 @@
 # 🏢 Gerenciador de Clientes
 
 ## 🔥 Introdução
-Um sistema simples de gerenciamento de clientes, desenvolvido com **Vite**, **React**, **TypeScript** e **TailwindCSS** no **Frontend**, e **Fastify**, **Prisma** e **MongoDB** no **Backend**.
+Um sistema simples de gerenciamento de clientes, desenvolvido com **Vite**, **React**, **TypeScript** e **TailwindCSS**.
 
 ### 🎯 Funcionalidades
 ✔️ Cadastrar novos clientes
@@ -13,72 +13,40 @@ Um sistema simples de gerenciamento de clientes, desenvolvido com **Vite**, **Re
 ## 🚀 Tecnologias Utilizadas
 
 
-### 🔹 Frontend
-
 - **React** ⚛️
 - **TypeScript** 🟦
 - **Vite** ⚡
 - **TailwindCSS** 🎨
 - **Axios** 🔗
-- **React Icons** 🖼️
-
-### 🔹 Backend
-
-- **Fastify** ⚡
-- **TypeScript** 🟦
-- **Prisma** 🛢️
-- **MongoDB** 🏦
-- **Fastify CORS** 🔐 
+- **React Icons** 
 
 
 
 ## 📂 Estrutura do Projeto
 ``` bash
-📂 gerenciador-clientes
- ┣ ┣ 📂 backend
- ┃ ┃ ┣ 📂 prisma
- ┃ ┃ ┃ ┗ schema.prisma
- ┃ ┃ ┣ 📂 src
- ┃ ┃ ┃ ┣ 📂 controllers
- ┃ ┃ ┃ ┣ 📜 CreateCustomerController.ts
- ┃ ┃ ┃ ┣ 📜 DeleteCustomerController.ts
- ┃ ┃ ┃ ┗ 📜 ListCustomerController.ts
- ┃ ┃ ┃ ┣ 📂 prisma
- ┃ ┃ ┃ ┃ ┗ 📜 index.ts
- ┃ ┃ ┃ ┣ 📂 services
- ┃ ┃ ┃ ┃ ┣ 📜 CreateCustomerService.ts
- ┃ ┃ ┃ ┃ ┣ 📜 DeleteCustomerService.ts
- ┃ ┃ ┃ ┃ ┗ 📜 ListCustomerService.ts
- ┃ ┃ ┃ ┣ 📜 routes.ts
- ┃ ┃ ┃ ┗ 📜 server.ts
- ┃ ┃ ┣ 📜 .gitignore
- ┃ ┃ ┣ 📜 api.http
- ┃ ┃ ┣ 📜 package.json
- ┃ ┃ ┣ 📜 package-lock.json
- ┃ ┃ ┗ 📜 tsconfig.json
- ┃ ┣ 📂 frontend
- ┃ ┃ ┣ 📂 src
- ┃ ┃ ┃ ┣ 📂 components
- ┃ ┃ ┃ ┃ ┣ 📜 ClientItem.tsx
- ┃ ┃ ┃ ┃ ┣ 📜 Form.tsx
- ┃ ┃ ┃ ┃ ┗ 📜 ListClients.tsx
- ┃ ┃ ┃ ┣ 📂 services
+📂 gerenciador_clientes
+ ┃ ┣ 📂 src
+ ┃ ┃ ┣ 📂 components
+ ┃ ┃ ┃ ┣ 📜 ClientItem.tsx
+ ┃ ┃ ┃ ┣ 📜 Form.tsx
+ ┃ ┃ ┃ ┗ 📜 ListClients.tsx
+ ┃ ┃ ┣ 📂 services
  ┃ ┃ ┃ ┃ ┗ 📜 api.ts
- ┃ ┃ ┣ 📜 App.tsx
- ┃ ┃ ┣ 📜 index.css
- ┃ ┃ ┣ 📜 main.tsx
- ┃ ┃ ┗ 📜 vite-env.d.ts
- ┃ ┣ 📜.gitignore
- ┃ ┣ 📜 eslint.config.js
- ┃ ┣ 📜 index.html
- ┃ ┣ 📜 package.json
- ┃ ┣ 📜 package-lock.json
- ┃ ┣ 📜 tsconfig.json
- ┃ ┣ 📜 tsconfig.app.json
- ┃ ┣ 📜 tsconfig.node.json
- ┃ ┗ 📜 vite.config.json
+ ┃ ┣ 📜 App.tsx
+ ┃ ┣ 📜 index.css
+ ┃ ┣ 📜 main.tsx
+ ┃ ┗ 📜 vite-env.d.ts
+ ┣ 📜.gitignore
+ ┣ 📜 eslint.config.js
+ ┣ 📜 index.html
+ ┣ 📜 package.json
+ ┣ 📜 package-lock.json
+ ┣ 📜 tsconfig.json
+ ┣ 📜 tsconfig.app.json
+ ┣ 📜 tsconfig.node.json
+ ┣ 📜 README.md
  ┣ 📜 .gitattributes
- ┗ 📜 README.md
+ ┗ 📜 vite.config.json
 
 ```
 
@@ -87,13 +55,13 @@ Um sistema simples de gerenciamento de clientes, desenvolvido com **Vite**, **Re
 1️⃣ Clone o repositório
 
 ```bash
- git clone https://github.com/tatyanepgoncalves/gerenciador-clientes.git
+ git clone https://github.com/tatyanepgoncalves/gerenciador_clientes.git
 ```
 
 2️⃣ Instale as dependências
 
 ```bash
-cd gerenciador-clientes
+cd gerenciador_clientes
 npm install  # ou yarn install
 ```
 
@@ -104,11 +72,6 @@ Certifique-se de que a API está rodando localmente na porta `3333` ou ajuste a 
 ```bash
 npm run dev # ou yarn dev
 ```
-
-## 🌍 API Endpoints Utilizados
-- `GET /customers` -> Lista todos os clientes
-- `POST /customer` -> Adiciona um novo cliente
-- `DELETE /customer/:id` -> Remove um cliente pelo ID
 
 ## 📌 Melhorias Futuras
 
